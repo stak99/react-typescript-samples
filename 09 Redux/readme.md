@@ -269,7 +269,7 @@ const createEmptyMemberErrors = (): MemberErrors => ({
   login: new FieldValidationResult(),
 });
 
-export const memberReducer = (state = createEmptyMemberErrors(), action) => {
+export const memberErrorsReducer = (state = createEmptyMemberErrors(), action) => {
   switch (action.type) {
     case actionTypes.FETCH_MEMBERS_COMPLETED:
       return handleFetchMembersCompleted(state, action.payload);
@@ -638,8 +638,8 @@ interface Props {
 + render() {
     return (
       <MemberForm
-        member={props.member}
-        memberErrors={props.memberErrors}
+        member={this.props.member}
+        memberErrors={this.props.memberErrors}
         onChange={props.onChange}
         onSave={props.onSave}
       />
